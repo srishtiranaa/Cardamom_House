@@ -30,6 +30,17 @@ export function Hero({ restaurant, state }: HeroProps) {
 
   return (
     <header className="relative overflow-hidden px-4 min-h-[75vh] flex flex-col justify-between sm:px-6 lg:px-8 py-8 md:py-12">
+      {/* Cinematic Looping Background Cardamom Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15 z-0"
+      >
+        <source src="/videos/cardamom_bg.mp4" type="video/mp4" />
+      </video>
+
       {/* Dynamic Floating Ambient Background Blobs */}
       <motion.div
         animate={
