@@ -5,14 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CategoryRail } from "@/components/CategoryRail";
 import { DishCarousel } from "@/components/DishCarousel";
 import { DishDetailCard } from "@/components/DishDetailCard";
-import type { Category, MenuItem } from "@/lib/types";
+import { TodaySpecial } from "@/components/TodaySpecial";
+import type { Category, MenuItem, RestaurantState } from "@/lib/types";
 
 interface MenuCarouselProps {
   categories: Category[];
+  restaurantState: RestaurantState;
+  specialItem: MenuItem | undefined;
 }
 
-export function MenuCarousel({ categories }: MenuCarouselProps) {
-  // Filters out categories with no items (or handles empty categories gracefully)
+export function MenuCarousel({
+  categories,
+  restaurantState,
+  specialItem,
+}: MenuCarouselProps) {
+  // Filters out categories with no items
   const validCategories = useMemo(() => {
     return categories.filter((c) => c.items.length > 0);
   }, [categories]);
@@ -75,12 +82,11 @@ export function MenuCarousel({ categories }: MenuCarouselProps) {
   };
 
   return (
-    <div className="relative min-h-screen w-full bg-gradient-to-br from-rose-100 via-amber-50 to-orange-100 py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center overflow-hidden">
-      {/* Decorative Blur Background Blobs */}
-      <div className="pointer-events-none absolute left-[-10%] top-[-10%] h-80 w-80 rounded-full bg-rose-200/40 blur-3xl lg:h-96 lg:w-96" />
-      <div className="pointer-events-none absolute right-[-10%] bottom-[-10%] h-96 w-96 rounded-full bg-orange-200/35 blur-3xl lg:h-[500px] lg:w-[500px]" />
-      
-      {/* Interactive Micro-Animated Toast Notification */}
+    <section
+      id="menu-carousel"
+      className="relative z-10 w-full max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8 scroll-mt-6 flex flex-col gap-8"
+    >
+      {/* Dynamic Micro-Animated Toast Notification */}
       <AnimatePresence>
         {showToast && (
           <motion.div
@@ -88,11 +94,10 @@ export function MenuCarousel({ categories }: MenuCarouselProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             onAnimationComplete={() => {
-              // Hide toast after 2.5s
               const timer = setTimeout(() => setShowToast(false), 2200);
               return () => clearTimeout(timer);
             }}
-            className="fixed top-6 z-50 rounded-full bg-espresso text-cream px-6 py-3.5 shadow-lg shadow-espresso/30 flex items-center gap-2 border border-white/10"
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-espresso text-cream px-6 py-3.5 shadow-lg shadow-espresso/30 flex items-center gap-2 border border-white/10"
           >
             <span className="text-xs font-semibold uppercase tracking-wide">
               {toastMessage}
@@ -101,20 +106,19 @@ export function MenuCarousel({ categories }: MenuCarouselProps) {
         )}
       </AnimatePresence>
 
-      <div className="relative z-10 w-full max-w-5xl flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-center">
-        {/* Step 1: Category Selector (Circular categories) */}
-        <div className="flex flex-col gap-4">
-          <h1 className="font-serif text-2xl font-bold text-espresso lg:hidden text-center sm:text-left">
-            Cardamom House
-          </h1>
-          <CategoryRail
-            categories={validCategories}
-            activeCategoryId={activeCategoryId}
-            onSelectCategory={handleSelectCategory}
-          />
-        </div>
+      {/* Today's Special highlighted callout banner */}
+      <TodaySpecial state={restaurantState} specialItem={specialItem} />
 
-        {/* Step 2: Vertical Dish Carousel (Adaptable to horizontal on mobile) */}
+      {/* Main Grid Wrapper */}
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-center">
+        {/* Step 1: Category Selector (Circular categories) */}
+        <CategoryRail
+          categories={validCategories}
+          activeCategoryId={activeCategoryId}
+          onSelectCategory={handleSelectCategory}
+        />
+
+        {/* Step 2: Vertical Dish Carousel (Adapts to horizontal row on mobile) */}
         {activeCategoryDishes.length > 0 ? (
           <DishCarousel
             dishes={activeCategoryDishes}
@@ -156,6 +160,6 @@ export function MenuCarousel({ categories }: MenuCarouselProps) {
           </AnimatePresence>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

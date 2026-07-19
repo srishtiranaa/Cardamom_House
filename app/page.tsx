@@ -1,9 +1,7 @@
-import { CategoryNav } from "@/components/CategoryNav";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { MenuCarousel } from "@/components/MenuCarousel";
 import { HoursTable } from "@/components/HoursTable";
-import { MenuSection } from "@/components/MenuSection";
-import { TodaySpecial } from "@/components/TodaySpecial";
+import { Footer } from "@/components/Footer";
 import {
   getMenuItemById,
   getRestaurantState,
@@ -21,27 +19,19 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <>
-      <main id="main-content">
+      <main id="main-content" className="w-full">
+        {/* Revamped attractive landing splash screen */}
         <Hero restaurant={menuData.restaurant} state={restaurantState} />
 
-        <div className="mt-8 space-y-12">
-          <TodaySpecial state={restaurantState} specialItem={specialItem} />
+        {/* Carousel Menu that comes directly after the Hero */}
+        <MenuCarousel
+          categories={menuData.categories}
+          restaurantState={restaurantState}
+          specialItem={specialItem}
+        />
 
-          <div className="mx-auto grid max-w-5xl gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,11rem)_minmax(0,1fr)] lg:items-start lg:gap-10 lg:px-8">
-            <CategoryNav categories={menuData.categories} />
-
-            <div className="min-w-0 space-y-14">
-              {menuData.categories.map((category) => (
-                <MenuSection
-                  key={category.id}
-                  category={category}
-                  soldOutItemIds={restaurantState.soldOutItemIds}
-                  todaySpecialItemId={restaurantState.todaySpecial.itemId}
-                />
-              ))}
-            </div>
-          </div>
-
+        {/* Muted Hours Table at the bottom */}
+        <div className="mt-12">
           <HoursTable
             hours={menuData.restaurant.hours}
             todayDay={restaurantState.simulatedDay}
