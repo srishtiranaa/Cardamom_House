@@ -120,9 +120,11 @@ During development, emphasis was placed on:
 
 ## 📸 Screenshots
 
-Add screenshots of your application here.
+<img width="1912" height="908" alt="Screenshot 2026-07-20 005940" src="https://github.com/user-attachments/assets/a81e374f-8965-49e6-8993-6508847d8571" />
+<img width="1913" height="913" alt="Screenshot 2026-07-20 010002" src="https://github.com/user-attachments/assets/26333d37-36db-4e85-8f04-06288ebba767" />
+<img width="1917" height="906" alt="Screenshot 2026-07-20 010023" src="https://github.com/user-attachments/assets/7ce6a0c7-63cb-484e-b948-16387d642846" />
+<img width="1915" height="910" alt="Screenshot 2026-07-20 010038" src="https://github.com/user-attachments/assets/0173aaa7-fd51-4f37-b2d5-b53b92ad0300" />
 
----
 
 ## 👩‍💻 Author
 
