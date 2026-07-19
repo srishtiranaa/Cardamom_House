@@ -38,7 +38,7 @@ export default function RootLayout({
             playsInline
             className="h-full w-full object-cover opacity-[0.12]"
           >
-            <source src="/videos/cardamom_bg.mp4" type="video/mp4" />
+            <source src="/videos/background_video_clip.mp4" type="video/mp4" />
           </video>
           {/* Subtle cream overlay for legibility */}
           <div className="absolute inset-0 bg-cream/93" />
