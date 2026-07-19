@@ -31,7 +31,7 @@ export function DishCarousel({
             <button
               key={dish.id}
               onClick={() => onSelectDish(dish.id)}
-              className="flex flex-col items-center gap-1.5 shrink-0 group focus:outline-none relative snap-center"
+              className="flex flex-col items-center gap-1.5 shrink-0 group focus:outline-none relative snap-center p-2"
               aria-label={`Select ${dish.name}`}
               aria-pressed={isActive}
             >
