@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import { StatusDot } from "@/components/ui";
+import { StatusDot, focusRing } from "@/components/ui";
 import type { HeroProps } from "@/lib/types";
 
 export function Hero({ restaurant, state }: HeroProps) {
@@ -52,15 +53,25 @@ export function Hero({ restaurant, state }: HeroProps) {
           {restaurant.tagline}
         </p>
 
-        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white/60 px-4 py-2 text-sm font-medium text-stone-700 backdrop-blur-sm">
-          <StatusDot isOpen={state.isOpen} />
-          <span className="capitalize">{state.statusLabel}</span>
-          <span className="text-stone-400" aria-hidden="true">
-            ·
-          </span>
-          <span className="text-stone-500">
-            {state.simulatedTime} (simulated)
-          </span>
+        <div className="mt-6 flex flex-wrap gap-3 items-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white/60 px-4 py-2 text-sm font-medium text-stone-700 backdrop-blur-sm">
+            <StatusDot isOpen={state.isOpen} />
+            <span className="capitalize">{state.statusLabel}</span>
+            <span className="text-stone-400" aria-hidden="true">
+              ·
+            </span>
+            <span className="text-stone-500">
+              {state.simulatedTime} (simulated)
+            </span>
+          </div>
+
+          <Link
+            href="/carousel"
+            className={`${focusRing()} inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white shadow-md shadow-brand/25 transition-all hover:bg-brand-dark hover:scale-102`}
+          >
+            <span>Interactive Carousel Menu</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </motion.div>
     </header>

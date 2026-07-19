@@ -40,6 +40,8 @@ export interface MenuItem {
   description?: string;
   price: number;
   tags: string[];
+  prepTime?: string;
+  image?: string;
 }
 
 export interface Category {

@@ -40,6 +40,8 @@ export const menuData: MenuData = {
             "Two eggs poached in spiced tomato and pepper sauce, served with sourdough.",
           price: 11.5,
           tags: ["V"],
+          prepTime: "15 min",
+          image: "/images/dishes/shakshuka.png",
         },
         {
           id: "brunch_02",
@@ -48,6 +50,8 @@ export const menuData: MenuData = {
             "Smashed avocado, lemon, chili flakes, hemp seeds, soft poached egg.",
           price: 9.8,
           tags: ["V"],
+          prepTime: "10 min",
+          image: "/images/dishes/avacado-toast.jpg",
         },
         {
           id: "brunch_03",
@@ -56,6 +60,8 @@ export const menuData: MenuData = {
             "Eggs your way, chorizo, grilled tomato, beans, sourdough, salted butter.",
           price: 14.2,
           tags: [],
+          prepTime: "20 min",
+          image: "/images/dishes/full-lisbon-breakfast.jpg",
         },
         {
           id: "brunch_04",
@@ -63,6 +69,8 @@ export const menuData: MenuData = {
           description: "Acai, banana, granola, blueberries, honey, coconut.",
           price: 10.4,
           tags: ["V", "GF"],
+          prepTime: "8 min",
+          image: "/images/dishes/acai-bowl.jpg",
         },
         {
           id: "brunch_05",
@@ -71,6 +79,8 @@ export const menuData: MenuData = {
             "Oats soaked overnight in apple juice with cinnamon, apple, almonds, yogurt.",
           price: 8.2,
           tags: ["V"],
+          prepTime: "5 min",
+          image: "/images/dishes/bircher-muesli.jpg",
         },
         {
           id: "brunch_06",
@@ -79,6 +89,8 @@ export const menuData: MenuData = {
             "Two poached eggs, smoked salmon or ham, hollandaise, on toasted muffins.",
           price: 13.6,
           tags: [],
+          prepTime: "15 min",
+          image: "/images/dishes/egg-benedict.jpg",
         },
         {
           id: "brunch_07",
@@ -87,6 +99,8 @@ export const menuData: MenuData = {
             "Brioche soaked in saffron-cardamom custard, pistachios, mascarpone, honey.",
           price: 12.8,
           tags: ["V"],
+          prepTime: "12 min",
+          image: "/images/dishes/saffron-french-toast.jpg",
         },
         {
           id: "brunch_08",
@@ -95,6 +109,8 @@ export const menuData: MenuData = {
             "Sweet potato, kale, peppers, two eggs, smoked paprika, avocado.",
           price: 12.2,
           tags: ["V", "GF"],
+          prepTime: "18 min",
+          image: "/images/dishes/veggie-hash.jpg",
         },
       ],
     },
@@ -109,6 +125,8 @@ export const menuData: MenuData = {
           description: "Ham, gruyere, béchamel, mustard, on grilled sourdough.",
           price: 10.2,
           tags: [],
+          prepTime: "10 min",
+          image: "/images/dishes/croque-monsieur.jpg",
         },
         {
           id: "sand_02",
@@ -116,6 +134,8 @@ export const menuData: MenuData = {
           description: "Garlic mushrooms, taleggio, truffle oil, rocket, on rye.",
           price: 11.4,
           tags: ["V"],
+          prepTime: "12 min",
+          image: "/images/dishes/mushroom-melt.jpg",
         },
         {
           id: "sand_03",
@@ -123,6 +143,8 @@ export const menuData: MenuData = {
           description: "Cream cheese, dill, capers, red onion, smoked salmon.",
           price: 11.8,
           tags: [],
+          prepTime: "10 min",
+          image: "/images/dishes/smoked-salmon-bagel.jpg",
         },
         {
           id: "sand_04",
@@ -130,6 +152,8 @@ export const menuData: MenuData = {
           description: "Tuna, celery, cornichons, mayo, lettuce, on sourdough.",
           price: 9.6,
           tags: [],
+          prepTime: "10 min",
+          image: "/images/dishes/tuna-crunch.jpg",
         },
         {
           id: "sand_05",
@@ -138,6 +162,8 @@ export const menuData: MenuData = {
             "Grilled halloumi, harissa mayo, slaw, rocket, on sourdough.",
           price: 10.8,
           tags: ["V", "spicy"],
+          prepTime: "12 min",
+          image: "/images/dishes/halloumi-and-harissa.jpg",
         },
       ],
     },
@@ -152,6 +178,8 @@ export const menuData: MenuData = {
           description: "Double shot.",
           price: 1.8,
           tags: [],
+          prepTime: "3 min",
+          image: "/images/dishes/espresso.jpg",
         },
         {
           id: "drink_02",
@@ -159,6 +187,8 @@ export const menuData: MenuData = {
           description: "Double shot, silky milk.",
           price: 3.2,
           tags: [],
+          prepTime: "3 min",
+          image: "/images/dishes/flat-white.jpg",
         },
         {
           id: "drink_03",
@@ -166,6 +196,8 @@ export const menuData: MenuData = {
           description: "House blend, cardamom syrup, milk of your choice.",
           price: 3.8,
           tags: [],
+          prepTime: "4 min",
+          image: "/images/dishes/cardamom-latte.jpg",
         },
         {
           id: "drink_04",
@@ -173,6 +205,8 @@ export const menuData: MenuData = {
           description: "Stone-ground Uji matcha, milk of your choice.",
           price: 4.2,
           tags: ["V"],
+          prepTime: "4 min",
+          image: "/images/dishes/matcha.jpg",
         },
         {
           id: "drink_05",
@@ -180,6 +214,8 @@ export const menuData: MenuData = {
           description: "Pressed to order.",
           price: 4.4,
           tags: ["V", "GF"],
+          prepTime: "3 min",
+          image: "/images/dishes/Fresh-OJ.jpg",
         },
         {
           id: "drink_06",
@@ -187,6 +223,8 @@ export const menuData: MenuData = {
           description: "House-made, lightly sparkling.",
           price: 3.8,
           tags: ["V", "GF"],
+          prepTime: "4 min",
+          image: "/images/dishes/mint-lemonade.jpg",
         },
       ],
     },
@@ -195,14 +233,15 @@ export const menuData: MenuData = {
       name: "Sides & Extras",
       description: "",
       items: [
-        { id: "side_01", name: "Side of Bacon", price: 3.2, tags: [] },
-        { id: "side_02", name: "Side of Sourdough", price: 2.4, tags: ["V"] },
-        { id: "side_03", name: "Extra Egg", price: 1.6, tags: ["V"] },
+        { id: "side_01", name: "Side of Bacon", price: 3.2, tags: [], prepTime: "5 min" },
+        { id: "side_02", name: "Side of Sourdough", price: 2.4, tags: ["V"], prepTime: "3 min" },
+        { id: "side_03", name: "Extra Egg", price: 1.6, tags: ["V"], prepTime: "4 min" },
         {
           id: "side_04",
           name: "Side of Avocado",
           price: 2.8,
           tags: ["V", "GF"],
+          prepTime: "3 min",
         },
       ],
     },
