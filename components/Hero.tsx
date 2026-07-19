@@ -1,0 +1,54 @@
+import { StatusDot } from "@/components/ui";
+import type { HeroProps } from "@/lib/types";
+
+export function Hero({ restaurant, state }: HeroProps) {
+  return (
+    <header className="relative overflow-hidden px-4 pb-10 pt-12 sm:px-6 sm:pt-16 lg:px-8">
+      <div
+        className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-brand/15 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -bottom-24 -left-10 h-56 w-56 rounded-full bg-amber-200/40 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-5xl">
+        {state.closedBanner ? (
+          <div
+            className="mb-6 rounded-2xl border border-stone-300/60 bg-stone-100/90 px-4 py-3 text-center sm:px-6"
+            role="status"
+          >
+            <p className="font-serif text-lg text-stone-800">
+              {state.closedBanner.message}
+            </p>
+            <p className="mt-1 text-sm text-stone-600">
+              {state.closedBanner.nextOpening}
+            </p>
+          </div>
+        ) : null}
+
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
+          Lisbon · Estrela
+        </p>
+        <h1 className="mt-3 font-serif text-4xl leading-tight text-espresso sm:text-5xl lg:text-6xl">
+          {restaurant.name}
+        </h1>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-600 sm:text-lg">
+          {restaurant.tagline}
+        </p>
+
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white/60 px-4 py-2 text-sm font-medium text-stone-700 backdrop-blur-sm">
+          <StatusDot isOpen={state.isOpen} />
+          <span className="capitalize">{state.statusLabel}</span>
+          <span className="text-stone-400" aria-hidden="true">
+            ·
+          </span>
+          <span className="text-stone-500">
+            {state.simulatedTime} (simulated)
+          </span>
+        </div>
+      </div>
+    </header>
+  );
+}

@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #b45309;
+  --color-brand-dark: #92400e;
+  --color-brand-light: #fbbf24;
+  --color-cream: #faf7f2;
+  --color-espresso: #292018;
+  --font-serif: var(--font-cormorant), "Georgia", serif;
+  --font-sans: var(--font-dm-sans), "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans text-espresso antialiased;
+    background-image:
+      radial-gradient(circle at 10% 0%, rgb(180 83 9 / 0.06), transparent 40%),
+      radial-gradient(circle at 90% 20%, rgb(251 191 36 / 0.08), transparent 35%);
+  }
+
+  ::selection {
+    @apply bg-brand/20 text-espresso;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
