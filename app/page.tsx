@@ -1,8 +1,4 @@
-import { Hero } from "@/components/Hero";
-import { MenuCarousel } from "@/components/MenuCarousel";
-import { HoursTable } from "@/components/HoursTable";
-import { Footer } from "@/components/Footer";
-import { IntroSplash } from "@/components/IntroSplash";
+import { HomePageClient } from "@/components/HomePageClient";
 import {
   getMenuItemById,
   getRestaurantState,
@@ -19,31 +15,11 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   const specialItem = getMenuItemById(restaurantState.todaySpecial.itemId);
 
   return (
-    <>
-      {/* Full-screen cinematic entrance intro video */}
-      <IntroSplash />
-
-      <main id="main-content" className="w-full">
-        {/* Revamped attractive landing splash screen */}
-        <Hero restaurant={menuData.restaurant} state={restaurantState} />
-
-        {/* Carousel Menu that comes directly after the Hero */}
-        <MenuCarousel
-          categories={menuData.categories}
-          restaurantState={restaurantState}
-          specialItem={specialItem}
-        />
-
-        {/* Muted Hours Table at the bottom */}
-        <div className="mt-12">
-          <HoursTable
-            hours={menuData.restaurant.hours}
-            todayDay={restaurantState.simulatedDay}
-          />
-        </div>
-      </main>
-
-      <Footer restaurant={menuData.restaurant} />
-    </>
+    <HomePageClient
+      categories={menuData.categories}
+      restaurantState={restaurantState}
+      specialItem={specialItem}
+      restaurant={menuData.restaurant}
+    />
   );
 }

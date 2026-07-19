@@ -5,7 +5,11 @@ import { ArrowDown, ChevronDown } from "lucide-react";
 import { StatusDot, focusRing } from "@/components/ui";
 import type { HeroProps } from "@/lib/types";
 
-export function Hero({ restaurant, state }: HeroProps) {
+interface ExtendedHeroProps extends HeroProps {
+  introActive?: boolean;
+}
+
+export function Hero({ restaurant, state, introActive = false }: ExtendedHeroProps) {
   const shouldReduceMotion = useReducedMotion();
 
   // Motion configs
@@ -90,7 +94,7 @@ export function Hero({ restaurant, state }: HeroProps) {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={introActive ? "hidden" : "visible"}
         className="relative mx-auto w-full max-w-5xl flex-1 flex flex-col justify-center py-10 md:py-16"
       >
         <motion.p

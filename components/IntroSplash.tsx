@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 
-export function IntroSplash() {
+interface IntroSplashProps {
+  onDismiss: () => void;
+}
+
+export function IntroSplash({ onDismiss }: IntroSplashProps) {
   const [isDismissed, setIsDismissed] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -22,6 +26,7 @@ export function IntroSplash() {
 
   const handleDismiss = () => {
     setIsDismissed(true);
+    onDismiss();
   };
 
   return (
