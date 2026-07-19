@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { MenuCarousel } from "@/components/MenuCarousel";
 import { HoursTable } from "@/components/HoursTable";
 import { Footer } from "@/components/Footer";
+import { IntroSplash } from "@/components/IntroSplash";
 import {
   getMenuItemById,
   getRestaurantState,
@@ -19,6 +20,9 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <>
+      {/* Full-screen cinematic entrance intro video */}
+      <IntroSplash />
+
       <main id="main-content" className="w-full">
         {/* Revamped attractive landing splash screen */}
         <Hero restaurant={menuData.restaurant} state={restaurantState} />
