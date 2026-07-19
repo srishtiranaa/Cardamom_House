@@ -130,9 +130,9 @@ Add screenshots of your application here.
 
 Portfolio: https://portfolio-srishti-rana.vercel.app/
 
-LinkedIn: https://www.linkedin.com/in/srishtirana/
+LinkedIn: https://www.linkedin.com/in/srishtiiiii/
 
-GitHub: https://github.com/<your-username>
+GitHub: https://github.com/srishtiranaa
 
 ---
 
