@@ -44,8 +44,8 @@ export function CategoryRail({
               <div
                 className={`relative flex h-14 w-14 items-center justify-center rounded-full transition-all duration-300 ${
                   isActive
-                    ? "bg-espresso text-white shadow-lg shadow-espresso/20 scale-105"
-                    : "bg-white/60 text-stone-600 hover:bg-brand/10 hover:text-brand border border-white/20"
+                    ? "bg-gradient-to-br from-brand-accent to-brand text-white shadow-lg shadow-brand-accent/30 scale-105"
+                    : "bg-white/60 text-stone-600 hover:bg-brand-glow/15 hover:text-brand hover:scale-110 border border-white/25 shadow-sm"
                 } focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream`}
               >
                 <IconComponent className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
@@ -53,8 +53,8 @@ export function CategoryRail({
               
               {/* Category Name Label */}
               <span
-                className={`text-xs font-medium transition-colors ${
-                  isActive ? "text-espresso font-semibold" : "text-stone-500 group-hover:text-stone-800"
+                className={`text-xs font-semibold tracking-wide transition-colors ${
+                  isActive ? "text-brand-accent" : "text-stone-500 group-hover:text-stone-800"
                 }`}
               >
                 {category.name.split(" ")[0]} {/* truncate to first word e.g. Sandwiches */}

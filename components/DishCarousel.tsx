@@ -41,16 +41,16 @@ export function DishCarousel({
                 {isActive && (
                   <motion.div
                     layoutId="activeRing"
-                    className="absolute -inset-1.5 rounded-full border-2 border-brand"
+                    className="absolute -inset-1.5 rounded-full border-2 border-brand-accent shadow-md shadow-brand-accent/20"
                     transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 25 }}
                   />
                 )}
                 
                 <div
-                  className={`relative h-16 w-16 sm:h-20 sm:w-20 overflow-hidden rounded-full border border-stone-200 bg-stone-100 transition-all duration-300 ${
+                  className={`relative h-16 w-16 sm:h-20 sm:w-20 overflow-hidden rounded-full border bg-stone-100 transition-all duration-300 ${
                     isActive
-                      ? "scale-105 shadow-md shadow-amber-950/10"
-                      : "opacity-80 hover:opacity-100 border-white/20"
+                      ? "scale-105 border-brand-accent shadow-md shadow-brand-accent/15"
+                      : "opacity-80 hover:opacity-100 border-white/20 hover:scale-105 hover:shadow-sm"
                   }`}
                 >
                   <Image
@@ -67,15 +67,15 @@ export function DishCarousel({
               {/* Dish Name & Price Label underneath */}
               <div className="flex flex-col items-center max-w-[76px] sm:max-w-[88px] text-center">
                 <span
-                  className={`text-[10px] font-medium leading-tight line-clamp-1 transition-colors ${
-                    isActive ? "text-espresso font-semibold" : "text-stone-500 group-hover:text-stone-800"
+                  className={`text-[10px] font-semibold leading-tight line-clamp-1 transition-colors ${
+                    isActive ? "text-brand-accent" : "text-stone-500 group-hover:text-stone-800"
                   }`}
                 >
                   {dish.name}
                 </span>
                 <span
-                  className={`text-[9px] font-serif transition-colors mt-0.5 ${
-                    isActive ? "text-brand font-semibold" : "text-stone-400 group-hover:text-stone-600"
+                  className={`text-[10px] font-serif transition-colors mt-0.5 ${
+                    isActive ? "text-brand-deep font-semibold" : "text-stone-400 group-hover:text-stone-600"
                   }`}
                 >
                   €{dish.price.toFixed(2)}

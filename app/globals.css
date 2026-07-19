@@ -4,10 +4,14 @@
   --color-brand: #b45309;
   --color-brand-dark: #92400e;
   --color-brand-light: #fbbf24;
+  --color-brand-deep: #78350F;
+  --color-brand-accent: #EA580C;
+  --color-brand-glow: #F59E0B;
   --color-cream: #faf7f2;
+  --color-cream-card: #F5EFE4;
   --color-espresso: #292018;
   --font-serif: var(--font-cormorant), "Georgia", serif;
-  --font-sans: var(--font-dm-sans), "Segoe UI", sans-serif;
+  --font-sans: var(--font-plus-jakarta-sans), "Segoe UI", sans-serif;
 }
 
 @layer base {

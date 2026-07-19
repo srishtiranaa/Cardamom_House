@@ -102,14 +102,21 @@ export function Hero({ restaurant, state }: HeroProps) {
         
         <motion.h1
           variants={scaleVariants}
-          className="mt-4 font-serif text-5xl leading-tight text-espresso sm:text-6xl lg:text-7xl max-w-3xl"
+          className="mt-4 font-serif text-6xl leading-tight text-espresso sm:text-7xl lg:text-8xl max-w-3xl tracking-tight font-light"
         >
-          {restaurant.name}
+          {restaurant.name === "Cardamom House" ? (
+            <>
+              <span className="text-brand-accent font-normal italic">Cardamom</span>{" "}
+              <span className="text-espresso font-semibold">House</span>
+            </>
+          ) : (
+            restaurant.name
+          )}
         </motion.h1>
         
         <motion.p
           variants={itemVariants}
-          className="mt-6 max-w-xl text-lg leading-relaxed text-stone-600 sm:text-xl font-serif italic"
+          className="mt-6 max-w-xl text-xl leading-relaxed text-stone-600 sm:text-2xl font-serif italic"
         >
           {restaurant.tagline}
         </motion.p>
@@ -118,7 +125,7 @@ export function Hero({ restaurant, state }: HeroProps) {
         <motion.div variants={itemVariants} className="mt-8">
           <a
             href="#menu-carousel"
-            className={`${focusRing()} inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition-all hover:bg-brand-dark hover:scale-103 active:scale-98`}
+            className={`${focusRing()} inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand via-brand-accent to-brand px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-brand-accent/25 hover:shadow-xl hover:shadow-brand-accent/40 transition-all duration-300 hover:scale-103 active:scale-98`}
           >
             <span>Explore Menu</span>
             <ArrowDown className="h-4 w-4" />

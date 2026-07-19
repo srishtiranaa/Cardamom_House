@@ -63,13 +63,13 @@ export function DishDetailCard({
         {/* Info Block */}
         <div className="w-full text-center sm:text-left">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-espresso tracking-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-espresso tracking-tight">
               {dish.name}
             </h2>
             
             {/* Prep Time Badge */}
             {dish.prepTime && (
-              <div className="flex items-center gap-1 self-center sm:self-start bg-brand/10 border border-brand/20 text-brand-dark px-2.5 py-0.5 rounded-full text-xs font-semibold shrink-0">
+              <div className="flex items-center gap-1 self-center sm:self-start bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0">
                 <Clock className="h-3.5 w-3.5" />
                 <span>{dish.prepTime}</span>
               </div>
@@ -78,7 +78,7 @@ export function DishDetailCard({
 
           {/* Description */}
           {dish.description ? (
-            <p className="mt-4 text-stone-600 text-sm leading-relaxed line-clamp-3">
+            <p className="mt-4 text-stone-600 text-sm leading-relaxed line-clamp-3 sm:line-clamp-4">
               {dish.description}
             </p>
           ) : (
@@ -109,7 +109,7 @@ export function DishDetailCard({
           <span className="text-[10px] uppercase tracking-wider text-stone-500 font-semibold">
             Total Price
           </span>
-          <span className="font-serif text-3xl font-bold text-espresso mt-0.5">
+          <span className="font-serif text-3xl font-bold text-brand-accent mt-0.5">
             {formatPrice(dish.price)}
           </span>
         </div>
@@ -118,11 +118,12 @@ export function DishDetailCard({
           {/* Favorite heart button */}
           <motion.button
             onClick={() => onToggleFavorite(dish.id)}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.85 }}
             animate={{ scale: isFavorite ? [1, 1.25, 1] : 1 }}
             transition={{ duration: 0.3 }}
             className={`flex h-12 w-12 items-center justify-center rounded-full border border-stone-200/40 bg-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 focus-visible:ring-offset-cream ${
-              isFavorite ? "text-rose-500" : "text-stone-500 hover:text-rose-500"
+              isFavorite ? "text-rose-500 bg-rose-50/50" : "text-stone-500 hover:text-rose-500"
             }`}
             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
             aria-pressed={isFavorite}
@@ -133,9 +134,9 @@ export function DishDetailCard({
           {/* Add to Cart button */}
           <motion.button
             onClick={() => onAddToCart(dish)}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 bg-espresso text-cream hover:bg-espresso/90 px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition-colors shadow-md shadow-espresso/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 focus-visible:ring-offset-cream"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="flex items-center gap-2 bg-gradient-to-r from-espresso via-brand-deep to-espresso text-cream px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all shadow-md shadow-espresso/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 focus-visible:ring-offset-cream"
           >
             <Plus className="h-4 w-4" />
             <span>Add to Cart</span>
