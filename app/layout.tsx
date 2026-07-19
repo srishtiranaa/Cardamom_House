@@ -36,12 +36,12 @@ export default function RootLayout({
             loop
             muted
             playsInline
-            className="h-full w-full object-cover opacity-[0.12]"
+            className="h-full w-full object-cover"
           >
             <source src="/videos/background_video_clip.mp4" type="video/mp4" />
           </video>
-          {/* Subtle cream overlay for legibility */}
-          <div className="absolute inset-0 bg-cream/93" />
+          {/* Subtle cream overlay for legibility (85% opacity lets 15% video details shine through) */}
+          <div className="absolute inset-0 bg-cream/85" />
         </div>
 
         <a
