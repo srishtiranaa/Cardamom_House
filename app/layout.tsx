@@ -29,6 +29,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plusJakarta.variable} ${cormorant.variable}`}>
+        {/* Global Cinematic Looping Background Cardamom Video backdrop */}
+        <div className="fixed inset-0 -z-50 pointer-events-none overflow-hidden bg-cream">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover opacity-[0.12]"
+          >
+            <source src="/videos/cardamom_bg.mp4" type="video/mp4" />
+          </video>
+          {/* Subtle cream overlay for legibility */}
+          <div className="absolute inset-0 bg-cream/93" />
+        </div>
+
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
