@@ -1,16 +1,32 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { GlassCard } from "@/components/ui";
 import { formatPrice } from "@/lib/data";
 import type { TodaySpecialProps } from "@/lib/types";
 
 export function TodaySpecial({ state, specialItem }: TodaySpecialProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -24 };
+  const animate = { opacity: 1, y: 0 };
+  const transition = { duration: 0.5, ease: "easeOut" } as const;
+
   return (
-    <aside
+    <motion.aside
       className="px-4 sm:px-6 lg:px-8"
       aria-label="Today's special"
+      initial={initial}
+      animate={animate}
+      transition={transition}
     >
       <div className="mx-auto max-w-5xl">
         <GlassCard
-          className={`overflow-hidden ${state.todaySpecial.soldOut ? "border-stone-300/50" : "border-brand/25 bg-gradient-to-br from-brand/12 via-white/75 to-amber-50/80"}`}
+          className={`overflow-hidden ${
+            state.todaySpecial.soldOut
+              ? "border-stone-300/50 bg-stone-100/30"
+              : "border-brand/25 bg-gradient-to-br from-brand/10 via-white/60 to-amber-50/60"
+          }`}
         >
           <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
             <div>
@@ -48,6 +64,6 @@ export function TodaySpecial({ state, specialItem }: TodaySpecialProps) {
           </div>
         </GlassCard>
       </div>
-    </aside>
+    </motion.aside>
   );
 }

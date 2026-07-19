@@ -13,7 +13,7 @@ export function GlassCard({
 }: GlassCardProps) {
   return (
     <Component
-      className={`rounded-2xl border border-white/30 bg-white/70 shadow-lg shadow-amber-950/5 backdrop-blur-md ${className}`}
+      className={`rounded-2xl border border-white/20 bg-white/40 shadow-lg shadow-amber-950/5 backdrop-blur-md ${className}`}
     >
       {children}
     </Component>

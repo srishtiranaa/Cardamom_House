@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { MenuItem } from "@/components/MenuItem";
 import type { MenuSectionProps } from "@/lib/types";
 
@@ -9,14 +9,20 @@ export function MenuSection({
   soldOutItemIds,
   todaySpecialItemId,
 }: MenuSectionProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 };
+  const whileInView = { opacity: 1, y: 0 };
+  const transition = { duration: 0.4, ease: "easeOut" } as const;
+
   return (
     <motion.section
       id={`category-${category.id}`}
       className="scroll-mt-28 lg:scroll-mt-8"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      initial={initial}
+      whileInView={whileInView}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={transition}
     >
       <div className="mb-6 border-b border-stone-200/80 pb-4">
         <h2 className="font-serif text-2xl text-espresso sm:text-3xl">
@@ -29,7 +35,7 @@ export function MenuSection({
         ) : null}
       </div>
 
-      <ul className="space-y-1" role="list">
+      <ul className="grid gap-4 sm:grid-cols-1" role="list">
         {category.items.map((item, index) => (
           <MenuItem
             key={item.id}

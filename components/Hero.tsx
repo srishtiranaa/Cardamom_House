@@ -1,7 +1,16 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { StatusDot } from "@/components/ui";
 import type { HeroProps } from "@/lib/types";
 
 export function Hero({ restaurant, state }: HeroProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95 };
+  const animate = { opacity: 1, scale: 1 };
+  const transition = { duration: 0.5, ease: "easeOut" } as const;
+
   return (
     <header className="relative overflow-hidden px-4 pb-10 pt-12 sm:px-6 sm:pt-16 lg:px-8">
       <div
@@ -13,7 +22,12 @@ export function Hero({ restaurant, state }: HeroProps) {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-5xl">
+      <motion.div
+        className="relative mx-auto max-w-5xl"
+        initial={initial}
+        animate={animate}
+        transition={transition}
+      >
         {state.closedBanner ? (
           <div
             className="mb-6 rounded-2xl border border-stone-300/60 bg-stone-100/90 px-4 py-3 text-center sm:px-6"
@@ -48,7 +62,7 @@ export function Hero({ restaurant, state }: HeroProps) {
             {state.simulatedTime} (simulated)
           </span>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 }
