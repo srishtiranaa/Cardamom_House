@@ -21,8 +21,8 @@ export function DishCarousel({
     <div className="w-full lg:w-auto shrink-0">
       <h3 className="sr-only">Select a dish</h3>
       
-      {/* Scroll rail: Horizontal on mobile, Vertical on desktop */}
-      <div className="flex flex-row gap-4 overflow-x-auto pb-4 scrollbar-none justify-start lg:flex-col lg:overflow-y-auto lg:h-[550px] lg:pb-0 lg:pr-2 lg:py-2">
+      {/* Scroll rail: Horizontal on mobile (with scroll snap), Vertical on desktop */}
+      <div className="flex flex-row gap-4 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory scrollbar-none justify-start lg:flex-col lg:overflow-y-auto lg:h-[550px] lg:pb-0 lg:pr-2 lg:py-2">
         {dishes.map((dish, idx) => {
           const isActive = dish.id === activeDishId;
           const imagePath = dish.image || "/images/dishes/shakshuka.png"; // fallback
@@ -31,7 +31,7 @@ export function DishCarousel({
             <button
               key={dish.id}
               onClick={() => onSelectDish(dish.id)}
-              className="flex flex-col items-center gap-1.5 shrink-0 group focus:outline-none relative"
+              className="flex flex-col items-center gap-1.5 shrink-0 group focus:outline-none relative snap-center"
               aria-label={`Select ${dish.name}`}
               aria-pressed={isActive}
             >

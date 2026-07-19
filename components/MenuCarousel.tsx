@@ -135,11 +135,30 @@ export function MenuCarousel({
             {activeDish ? (
               <motion.div
                 key={activeDish.id}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.3}
+                onDragEnd={(event, info) => {
+                  const swipeThreshold = 50;
+                  if (info.offset.x < -swipeThreshold) {
+                    // Swiped left -> Next dish
+                    const currentIndex = activeCategoryDishes.findIndex((d) => d.id === activeDishId);
+                    if (currentIndex !== -1 && currentIndex < activeCategoryDishes.length - 1) {
+                      setActiveDishId(activeCategoryDishes[currentIndex + 1].id);
+                    }
+                  } else if (info.offset.x > swipeThreshold) {
+                    // Swiped right -> Previous dish
+                    const currentIndex = activeCategoryDishes.findIndex((d) => d.id === activeDishId);
+                    if (currentIndex > 0) {
+                      setActiveDishId(activeCategoryDishes[currentIndex - 1].id);
+                    }
+                  }
+                }}
                 initial={{ opacity: 0, y: 24, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -24, scale: 0.98 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
-                className="w-full"
+                className="w-full cursor-grab active:cursor-grabbing"
               >
                 <DishDetailCard
                   dish={activeDish}
